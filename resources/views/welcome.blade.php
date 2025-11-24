@@ -34,7 +34,7 @@
                         
                         <!-- Login Button: Takes user to the Login FORM -->
                         <a href="{{ route('login') }}" class="w-full text-center py-3 px-4 bg-indigo-600 hover:bg-indigo-700 rounded-lg text-white font-semibold transition duration-150 shadow-md hover:shadow-lg">
-                            Login to Dashboard
+                            Login
                         </a>
 
                         <!-- Register Button -->
