@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Category Management') }}
+            {{ __('Categories') }}
         </h2>
     </x-slot>
 
@@ -72,7 +72,6 @@
 
             <!-- Category List Section -->
             <div class="bg-white dark:bg-gray-800 shadow-xl sm:rounded-lg p-6">
-                <h3 class="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100 border-b pb-3">Categories</h3>
 
                 <!-- Categories Table -->
                 <div class="overflow-x-auto">

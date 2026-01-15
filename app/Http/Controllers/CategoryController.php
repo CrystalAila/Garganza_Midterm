@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Schema;
 
 class CategoryController extends Controller
 {
@@ -42,8 +43,30 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
+        // soft delete
         $category->delete();
 
-        return redirect()->route('categories.index')->with('success', 'Category deleted successfully!');
+        return redirect()->route('categories.index')->with('success', 'Category moved to trash.');
+    }
+
+    // show trashed categories
+    public function trash()
+    {
+        $categories = Category::onlyTrashed()->withCount('products')->orderBy('deleted_at', 'desc')->paginate(15);
+        return view('categories.trash', compact('categories'));
+    }
+
+    public function restore($id)
+    {
+        $category = Category::onlyTrashed()->findOrFail($id);
+        $category->restore();
+        return redirect()->route('categories.trash')->with('success', 'Category restored.');
+    }
+
+    public function forceDelete($id)
+    {
+        $category = Category::onlyTrashed()->findOrFail($id);
+        $category->forceDelete();
+        return redirect()->route('categories.trash')->with('success', 'Category permanently deleted.');
     }
 }

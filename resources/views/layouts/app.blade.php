@@ -18,80 +18,86 @@
     <div x-data="{ sidebarOpen: false }" class="min-h-screen bg-gray-100 dark:bg-gray-900">
 
         
-        <!-- Static sidebar for desktop -->
         <div class="hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col z-40">
-            <div class="flex flex-grow flex-col overflow-y-auto border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
-                <!-- Logo Section -->
-                <div class="flex flex-shrink-0 items-center justify-center h-16 px-4 bg-indigo-700 dark:bg-gray-900 shadow-md">
-                    <!-- The Logo Wrapper -->
-                    <a href="{{ url('/') }}" class="flex items-center space-x-3">
-                        
-                        <!-- NEW Logo: Using an Image Tag (Replace the old SVG) -->
-                        <img 
-                            src="{{ asset('images/a1.jpg') }}" 
-                            alt="VistaStock Logo" 
-                            class="h-11 w-auto rounded-full object-contain"
-                        >
-                        <!-- The 'asset()' helper function is mandatory here. -->
-                        
-                        <!-- App Name -->
-                        <span class="text-xl font-bold text-white tracking-wider uppercase text-center">
-                            ManMade 
-                        </span>
-                    </a>
-                </div>
+        <div class="flex flex-grow flex-col overflow-y-auto border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+            <!-- Logo Section -->
+            <div class="flex flex-shrink-0 items-center justify-center h-16 px-4 bg-indigo-700 dark:bg-gray-900 shadow-md">
+                <a href="{{ url('/') }}" class="flex items-center space-x-3">
+                    <img 
+                        src="{{ asset('images/a1.jpg') }}" 
+                        alt="VistaStock Logo" 
+                        class="h-11 w-auto rounded-full object-contain"
+                    >
+                    <span class="text-xl font-bold text-white tracking-wider uppercase text-center">
+                        ManMade 
+                    </span>
+                </a>
+            </div>
 
-                <!-- Primary Navigation Links -->
-                <nav class="flex flex-1 flex-col pt-5 pb-4 space-y-1 overflow-y-auto">
-                    <!-- Dashboard Link -->
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="text-gray-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md transition duration-150">
-                        <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+            <!-- Primary Navigation Links -->
+             <nav class="flex flex-1 flex-col pt-5 pb-4 space-y-1 overflow-y-auto">
+                <!-- Dashboard Link -->
+                <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="text-gray-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md transition duration-150">
+                    <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+                    {{ __('Dashboard') }}
+                </x-nav-link>
 
-                    <!-- Products Link -->
-                    <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.*')" class="text-gray-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md transition duration-150">
-                        <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.023.832l.979 5.092c.083.42.417.759.833.84L18.847 10.5M8.618 17.5M12 17.5M15.382 17.5M10.276 4.606a1.5 1.5 0 00-1.285 1.706l1.383 6.899a.591.591 0 01-.223.509L2.25 15.75m17.06-4.5H18.75m0 0a.75.75 0 100 1.5.75.75 0 000-1.5zM12 17.25h1.5M1.5 17.25a.75.75 0 01.75-.75h2.25M17.25 10.5h1.5a.75.75 0 010 1.5h-1.5a.75.75 0 01-.75-.75.75.75 0 01.75-.75zm0 0l-1.383 6.899a.591.591 0 01-.223.509l-7.259 4.356a.588.588 0 01-.715-.75l1.383-6.899A1.5 1.5 0 008.618 4.606z" /></svg>
-                        {{ __('Products') }}
-                    </x-nav-link>
+                <!-- Products Link -->
+                <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.*')" class="text-gray-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md transition duration-150">
+                    <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.023.832l.979 5.092c.083.42.417.759.833.84L18.847 10.5M8.618 17.5M12 17.5M15.382 17.5M10.276 4.606a1.5 1.5 0 00-1.285 1.706l1.383 6.899a.591.591 0 01-.223.509L2.25 15.75m17.06-4.5H18.75m0 0a.75.75 0 100 1.5.75.75 0 000-1.5zM12 17.25h1.5M1.5 17.25a.75.75 0 01.75-.75h2.25M17.25 10.5h1.5a.75.75 0 010 1.5h-1.5a.75.75 0 01-.75-.75.75.75 0 01.75-.75zm0 0l-1.383 6.899a.591.591 0 01-.223.509l-7.259 4.356a.588.588 0 01-.715-.75l1.383-6.899A1.5 1.5 0 008.618 4.606z" /></svg>
+                    {{ __('Products') }}
+                </x-nav-link>
 
-                    <!-- Categories Link (NEW) -->
-                    <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')" class="text-gray-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md transition duration-150">
-                        <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                <!-- Categories Link -->
+                <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')" class="text-gray-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md transition duration-150">
+                    <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                    {{ __('Categories') }}
+
+                </x-nav-link>
+
+                <!-- Export PDF under Categories -->
+                <a id="export-link-desktop" data-base-href="{{ route('products.export') }}" href="{{ route('products.export') }}" class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
+                    <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14" /></svg>
+                    {{ __('Export PDF') }}
+                </a>
+
+                <!-- Products Trash -->
+                <a href="{{ route('products.trash') }}" class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
+                    <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M10 3h4a1 1 0 011 1v1H9V4a1 1 0 011-1z" /></svg>
+                    {{ __('Products Trash') }}
+                </a>
+
+                <!-- Categories Trash -->
+                <a href="{{ route('categories.trash') }}" class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
+                    <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7h18M10 11v6M14 11v6M5 7l1 12a2 2 0 002 2h8a2 2 0 002-2l1-12" /></svg>
+                    {{ __('Categories Trash') }}
+                </a>
+
+
+            </nav>
+            
+            <!-- User Profile and Logout Section -->
+            <div class="flex-shrink-0 px-4 py-4 border-t border-gray-200 dark:border-gray-700">
+                <a href="{{ route('profile.edit') }}" class="flex items-center space-x-3 group">
+                    <img class="h-10 w-10 rounded-full object-cover border-2 border-transparent group-hover:border-indigo-500 transition" src="{{ Auth::user()->profile_photo_url ?? 'https://ui-avatars.com/api/?name='.urlencode(Auth::user()->name).'&color=7F9CF5&background=EBF4FF' }}" alt="">
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-gray-900 dark:text-white truncate">{{ Auth::user()->name }}</p>
+                    </div>
+                </a>
+                <form method="POST" action="{{ route('logout') }}" class="mt-4">
+                    @csrf
+                    <button type="submit" class="flex items-center w-full px-2 py-2 text-sm font-medium text-red-600 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition">
+                        <svg class="mr-3 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                         </svg>
-                        {{ __('Categories') }}
-                    </x-nav-link>
-
-                </nav>
-                
-                <!-- START: User Profile and Logout Section (Desktop Sidebar) -->
-                <div class="flex-shrink-0 px-4 py-2 border-t border-gray-200 dark:border-gray-700">
-                    <!-- Profile Link -->
-                    <a href="{{ route('profile.edit') }}" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition duration-150 border border-transparent">
-                        <img class="h-10 w-10 rounded-full object-cover" 
-                             src="{{ Auth::user()->profile_photo_url ?? 'https://placehold.co/40x40/4f46e5/ffffff?text=' . substr(Auth::user()->name, 0, 1) }}" 
-                             alt="{{ Auth::user()->name }}">
-                        <div class="min-w-0 flex-1">
-                            <p class="text-sm font-semibold text-gray-900 dark:text-white truncate">{{ Auth::user()->name }}</p>
-                            <p class="text-xs text-indigo-600 dark:text-indigo-400 truncate">View Profile</p>
-                        </div>
-                    </a>
-
-                    <!-- Logout Form (Desktop Sidebar) -->
-                    <form method="POST" action="{{ route('logout') }}" class="mt-2">
-                        @csrf
-                        <button type="submit" class="w-full text-left flex items-center p-2 text-sm font-medium rounded-md text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-gray-700 transition duration-150 group">
-                            <svg class="mr-3 h-6 w-6 text-red-400 group-hover:text-red-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l3 3m0 0l-3 3m3-3H9" /></svg>
-                            {{ __('Log Out') }}
-                        </button>
-                    </form>
-                </div>
-                <!-- END: User Profile and Logout Section (Desktop Sidebar) -->
-
-                <!-- Removed the old simplified User Info section here -->
+                        Logout
+                    </button>
+                </form>
             </div>
         </div>
+    </div>
 
         <!-- Mobile Sidebar (Off-Canvas Menu) -->
         <div x-show="sidebarOpen" class="relative z-50 md:hidden" role="dialog" aria-modal="true">
@@ -128,6 +134,7 @@
                                 {{ __('Products') }}
                             </x-nav-link>
 
+
                             <!-- Categories Link (NEW) -->
                             <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')" class="text-gray-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md transition duration-150">
                                 <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -135,30 +142,46 @@
                                 </svg>
                                 {{ __('Categories') }}
                             </x-nav-link>
+
+                            <!-- Export PDF under Categories (mobile) -->
+                            <a id="export-link-mobile" data-base-href="{{ route('products.export') }}" href="{{ route('products.export') }}" class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
+                                <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14" /></svg>
+                                {{ __('Export PDF') }}
+                            </a>
+
+                            <a href="{{ route('products.trash') }}" class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
+                                <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M10 3h4a1 1 0 011 1v1H9V4a1 1 0 011-1z" /></svg>
+                                {{ __('Products Trash') }}
+                            </a>
+
+                            <!-- Categories Trash -->
+                            <a href="{{ route('categories.trash') }}" class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
+                                <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7h18M10 11v6M14 11v6M5 7l1 12a2 2 0 002 2h8a2 2 0 002-2l1-12" /></svg>
+                                {{ __('Categories Trash') }}
+                            </a>
+
+             
+
                         </nav>
                         
                         <!-- START: User Profile and Logout Section (Mobile Sidebar) -->
-                        <div class="flex-shrink-0 px-2 py-2 mt-auto border-t border-gray-200 dark:border-gray-700">
-                            <!-- Profile Link -->
-                            <a href="{{ route('profile.edit') }}" class="flex items-center space-x-3 p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition duration-150">
-                                <img class="h-10 w-10 rounded-full object-cover" 
-                                     src="{{ Auth::user()->profile_photo_url ?? 'https://placehold.co/40x40/4f46e5/ffffff?text=' . substr(Auth::user()->name, 0, 1) }}" 
-                                     alt="{{ Auth::user()->name }}">
-                                <div class="min-w-0 flex-1">
-                                    <p class="text-sm font-semibold text-gray-900 dark:text-white truncate">{{ Auth::user()->name }}</p>
-                                    <p class="text-xs text-indigo-600 dark:text-indigo-400 truncate">View Profile</p>
-                                </div>
-                            </a>
-
-                            <!-- Logout Form (Mobile Sidebar) -->
-                            <form method="POST" action="{{ route('logout') }}" class="mt-2">
-                                @csrf
-                                <button type="submit" class="w-full text-left flex items-center p-2 text-sm font-medium rounded-md text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-gray-600 transition duration-150 group">
-                                    <svg class="mr-3 h-6 w-6 text-red-400 group-hover:text-red-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l3 3m0 0l-3 3m3-3H9" /></svg>
-                                    {{ __('Log Out') }}
-                                </button>
-                            </form>
-                        </div>
+                        <div class="flex-shrink-0 px-4 py-4 border-t border-gray-200 dark:border-gray-700">
+                <a href="{{ route('profile.edit') }}" class="flex items-center space-x-3 group">
+                    <img class="h-10 w-10 rounded-full object-cover border-2 border-transparent group-hover:border-indigo-500 transition" src="{{ Auth::user()->profile_photo_url ?? 'https://ui-avatars.com/api/?name='.urlencode(Auth::user()->name).'&color=7F9CF5&background=EBF4FF' }}" alt="">
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-medium text-gray-900 dark:text-white truncate">{{ Auth::user()->name }}</p>
+                    </div>
+                </a>
+                <form method="POST" action="{{ route('logout') }}" class="mt-4">
+                    @csrf
+                    <button type="submit" class="flex items-center w-full px-2 py-2 text-sm font-medium text-red-600 rounded-md hover:bg-red-50 dark:hover:bg-red-900/20 transition">
+                        <svg class="mr-3 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                        </svg>
+                        Logout
+                    </button>
+                </form>
+            </div>
                         <!-- END: User Profile and Logout Section (Mobile) -->
                         
                         <!-- Removed the old Mobile Logout Form and redundant info here -->
@@ -183,14 +206,7 @@
                 <div class="flex flex-1 justify-end px-4">
                     <!-- User Dropdown (Alpine.js) -->
                     <div class="ml-4 flex items-center md:ml-6" x-data="{ open: false }" @click.outside="open = false">
-                        <!-- Profile Button -->
-                        <button type="button" @click="open = !open" class="relative max-w-xs flex items-center rounded-full bg-white dark:bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900">
-                            <span class="sr-only">Open user menu</span>
-                            <!-- Using a placeholder image if profile_photo_url is not set -->
-                            <img class="h-8 w-8 rounded-full object-cover" 
-                                 src="{{ Auth::user()->profile_photo_url ?? 'https://placehold.co/32x32/374151/ffffff?text=' . substr(Auth::user()->name, 0, 1) }}" 
-                                 alt="{{ Auth::user()->name }}">
-                        </button>
+                    
 
                         <!-- Dropdown Menu -->
                         <div x-cloak x-show="open" 
@@ -203,17 +219,29 @@
                             class="absolute right-4 top-14 mt-2 w-48 origin-top-right rounded-md bg-white dark:bg-gray-700 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50" 
                             role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                             
-                            <!-- Profile Link -->
-                            <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600 transition duration-150" role="menuitem" tabindex="-1">
-                                Your Profile
-                            </a>
-
-                            <!-- Settings/Placeholder Link -->
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600 transition duration-150" role="menuitem" tabindex="-1">
-                                Settings
-                            </a>
+                            
                         </div>
                     </div>
+
+                    <script>
+                        // Preserve current query string (filters) when clicking Export PDF in sidebar
+                        (function(){
+                            try {
+                                var qs = window.location.search || '';
+                                if (!qs) return;
+                                var desktop = document.getElementById('export-link-desktop');
+                                var mobile = document.getElementById('export-link-mobile');
+                                if (desktop && desktop.dataset && desktop.dataset.baseHref) {
+                                    desktop.href = desktop.dataset.baseHref + qs;
+                                }
+                                if (mobile && mobile.dataset && mobile.dataset.baseHref) {
+                                    mobile.href = mobile.dataset.baseHref + qs;
+                                }
+                            } catch (e) {
+                                // no-op
+                            }
+                        })();
+                    </script>
                 </div>
             </div>
 
