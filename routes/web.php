@@ -26,14 +26,14 @@ Route::middleware('auth')->group(function () {
     });
 
 
-    Route::prefix('categories')->group(function () {
-        Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
-        Route::get('/trash', [CategoryController::class, 'trash'])->name('categories.trash');
-        Route::post('/{id}/restore', [CategoryController::class, 'restore'])->name('categories.restore');
-        Route::delete('/{id}/force-delete', [CategoryController::class, 'forceDelete'])->name('categories.forceDelete');
-        Route::post('/', [CategoryController::class, 'store'])->name('categories.store'); 
-        Route::patch('/{category}', [CategoryController::class, 'update'])->name('categories.update');
-        Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+    Route::controller(CategoryController::class)->prefix('categories')->group(function () {
+        Route::get('/', 'index')->name('categories.index');
+        Route::get('trash', 'trash')->name('categories.trash');
+        Route::post('{id}/restore', 'restore')->name('categories.restore');
+        Route::delete('{id}/force-delete', 'forceDelete')->name('categories.forceDelete');
+        Route::post('store', 'store')->name('categories.store'); 
+        Route::patch('{category}', 'update')->name('categories.update');
+        Route::delete('{category}', 'destroy')->name('categories.destroy');
     });
 
 

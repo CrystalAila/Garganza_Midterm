@@ -41,40 +41,56 @@
                     <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
                     {{ __('Dashboard') }}
                 </x-nav-link>
-
-                <!-- Products Link -->
-                <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.*')" class="text-gray-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md transition duration-150">
+                <!-- products -->
+                <div class="mt-8 mb-2 px-2">
+                    <span class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                        {{ __('Products') }}
+                    </span>
+                </div>
+                
+                <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')" class="text-gray-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md transition duration-150">
                     <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.023.832l.979 5.092c.083.42.417.759.833.84L18.847 10.5M8.618 17.5M12 17.5M15.382 17.5M10.276 4.606a1.5 1.5 0 00-1.285 1.706l1.383 6.899a.591.591 0 01-.223.509L2.25 15.75m17.06-4.5H18.75m0 0a.75.75 0 100 1.5.75.75 0 000-1.5zM12 17.25h1.5M1.5 17.25a.75.75 0 01.75-.75h2.25M17.25 10.5h1.5a.75.75 0 010 1.5h-1.5a.75.75 0 01-.75-.75.75.75 0 01.75-.75zm0 0l-1.383 6.899a.591.591 0 01-.223.509l-7.259 4.356a.588.588 0 01-.715-.75l1.383-6.899A1.5 1.5 0 008.618 4.606z" /></svg>
                     {{ __('Products') }}
                 </x-nav-link>
 
-                <!-- Categories Link -->
-                <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')" class="text-gray-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md transition duration-150">
+                 <x-nav-link :href="route('products.trash')" :active="request()->routeIs('products.trash')" class="text-gray-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md transition duration-150">
+                    <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M10 3h4a1 1 0 011 1v1H9V4a1 1 0 011-1z" /></svg>
+                    {{ __('Products Trash') }}
+                </x-nav-link>
+                
+
+                <div class="mt-8 mb-2 px-2">
+                    <span class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                        {{ __('Categories') }}
+                    </span>
+                </div>
+                
+                <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')" class="text-gray-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md transition duration-150">
                     <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
                     {{ __('Categories') }}
-
                 </x-nav-link>
 
-                <!-- Export PDF under Categories -->
+                
+
+                <x-nav-link :href="route('categories.trash')" :active="request()->routeIs('categories.trash')" class="text-gray-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md transition duration-150">
+                     <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7h18M10 11v6M14 11v6M5 7l1 12a2 2 0 002 2h8a2 2 0 002-2l1-12" /></svg>
+                    {{ __('Categories Trash') }}
+                </x-nav-link>
+
+
+                <div class="mt-8 mb-2 px-2">
+                    <span class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                        {{ __('PDF Export') }}
+                    </span>
+                </div>
                 <a id="export-link-desktop" data-base-href="{{ route('products.export') }}" href="{{ route('products.export') }}" class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
                     <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14" /></svg>
                     {{ __('Export PDF') }}
                 </a>
-
-                <!-- Products Trash -->
-                <a href="{{ route('products.trash') }}" class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
-                    <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M10 3h4a1 1 0 011 1v1H9V4a1 1 0 011-1z" /></svg>
-                    {{ __('Products Trash') }}
-                </a>
-
-                <!-- Categories Trash -->
-                <a href="{{ route('categories.trash') }}" class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
-                    <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7h18M10 11v6M14 11v6M5 7l1 12a2 2 0 002 2h8a2 2 0 002-2l1-12" /></svg>
-                    {{ __('Categories Trash') }}
-                </a>
-
+                
+                
 
             </nav>
             
@@ -129,38 +145,50 @@
                                 {{ __('Dashboard') }}
                             </x-nav-link>
 
-                            <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.*')" class="text-gray-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md transition duration-150">
+                            <div class="mt-8 mb-2 px-2">
+                                <span class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                    {{ __('Products') }}
+                                </span>
+                            </div>
+                            <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')" class="text-gray-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md transition duration-150">
                                 <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.023.832l.979 5.092c.083.42.417.759.833.84L18.847 10.5M8.618 17.5M12 17.5M15.382 17.5M10.276 4.606a1.5 1.5 0 00-1.285 1.706l1.383 6.899a.591.591 0 01-.223.509L2.25 15.75m17.06-4.5H18.75m0 0a.75.75 0 100 1.5.75.75 0 000-1.5zM12 17.25h1.5M1.5 17.25a.75.75 0 01.75-.75h2.25M17.25 10.5h1.5a.75.75 0 010 1.5h-1.5a.75.75 0 01-.75-.75.75.75 0 01.75-.75zm0 0l-1.383 6.899a.591.591 0 01-.223.509l-7.259 4.356a.588.588 0 01-.715-.75l1.383-6.899A1.5 1.5 0 008.618 4.606z" /></svg>
                                 {{ __('Products') }}
                             </x-nav-link>
 
+                             <x-nav-link :href="route('products.trash')" :active="request()->routeIs('products.trash')" class="text-gray-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md transition duration-150">
+                                <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M10 3h4a1 1 0 011 1v1H9V4a1 1 0 011-1z" /></svg>
+                                {{ __('Products Trash') }}
+                            </x-nav-link>
 
-                            <!-- Categories Link (NEW) -->
-                            <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')" class="text-gray-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md transition duration-150">
+
+                            <div class="mt-8 mb-2 px-2">
+                                <span class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                    {{ __('Categories') }}
+                                </span>
+                            </div>
+
+                            <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')" class="text-gray-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md transition duration-150">
                                 <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                                 </svg>
                                 {{ __('Categories') }}
                             </x-nav-link>
 
-                            <!-- Export PDF under Categories (mobile) -->
+                            <x-nav-link :href="route('categories.trash')" :active="request()->routeIs('categories.trash')" class="text-gray-900 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md transition duration-150">
+                                 <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M10 3h4a1 1 0 011 1v1H9V4a1 1 0 011-1z" /></svg>
+                                {{ __('Categories Trash') }}
+                            </x-nav-link>
+
+                            <div class="mt-8 mb-2 px-2">
+                                <span class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                                    {{ __('PDF Export') }}
+                                </span>
+                            </div>
                             <a id="export-link-mobile" data-base-href="{{ route('products.export') }}" href="{{ route('products.export') }}" class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
                                 <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14" /></svg>
                                 {{ __('Export PDF') }}
                             </a>
-
-                            <a href="{{ route('products.trash') }}" class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
-                                <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M10 3h4a1 1 0 011 1v1H9V4a1 1 0 011-1z" /></svg>
-                                {{ __('Products Trash') }}
-                            </a>
-
-                            <!-- Categories Trash -->
-                            <a href="{{ route('categories.trash') }}" class="group flex items-center px-2 py-2 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
-                                <svg class="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7h18M10 11v6M14 11v6M5 7l1 12a2 2 0 002 2h8a2 2 0 002-2l1-12" /></svg>
-                                {{ __('Categories Trash') }}
-                            </a>
-
-             
 
                         </nav>
                         

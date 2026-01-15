@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('sku', 50)->unique();
             $table->decimal('price', 8, 2);
             $table->unsignedInteger('stock_quantity');
-            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreignId('category_id')->nullable()->constrained()->nullOnDelete();
 
             $table->timestamps();
         });

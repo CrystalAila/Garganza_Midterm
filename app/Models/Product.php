@@ -9,8 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class Product extends Model
 {
-    use HasFactory;
-    use SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'category_id', 'name', 'sku', 'price', 'stock_quantity', 'photo_path'
@@ -21,18 +20,15 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    // Accessor for public URL of stored photo
     public function getPhotoUrlAttribute()
     {
         if ($this->photo_path) {
-            // Return a relative storage path so images load correctly regardless of APP_URL/port
             return '/storage/' . ltrim($this->photo_path, '/');
         }
 
         return null;
     }
 
-    // Accessor for initials fallback
     public function getInitialsAttribute()
     {
         if (empty($this->name)) {
